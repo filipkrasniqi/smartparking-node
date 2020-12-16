@@ -30,7 +30,7 @@ class Node:
         return self.status == NodeStatus.READY
 
     def getOccupancyMessage(self):
-        return OccupancyMessage(self.idNode, self.idNode, [SlotMessage(slot.idSlot, slot.occupied) for slot in self.slots])
+        return OccupancyMessage(self.idNode, self.idParking, [SlotMessage(slot.idSlot, slot.occupied) for slot in self.slots])
 
 class NodeStatus(Enum):
     TO_CONFIGURE = 1

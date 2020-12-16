@@ -40,6 +40,7 @@ class MQTTPublisher(LogThread):
 
         # Initializing architecture stuff
         self.idNode = node.idNode
+        self.configTimer = None
 
         # Initializing mqtt protocol
         self.client = mqtt.Client("node_{}".format(node.idNode))

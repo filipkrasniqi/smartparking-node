@@ -26,8 +26,9 @@ class MQTTPublisher(LogThread):
         self.client.message_callback_add('parking/brain/configure', self.on_configure)
 
         # start timer persisting configuration
-        self.configTimer = ConfigTimer("ConfigTimer", self.client, self.idNode)
-        self.configTimer.start()
+        if self.configTimer is None:
+            self.configTimer = ConfigTimer("ConfigTimer", self.client, self.idNode)
+            self.configTimer.start()
 
     def on_configure(self, client, userdata, msg):
         self.node = jsonpickle.decode(msg.payload)

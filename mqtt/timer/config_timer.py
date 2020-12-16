@@ -20,7 +20,7 @@ class ConfigTimer(LogThread):
         while self.node is None or not self.node.isReady():
             self.log("Attempting configuration...")
             self.client.publish("parking/node/configure", self.idNode)
-            time.sleep(30)
+            time.sleep(5)
         self.log("Configuration OK")
         # start occupancy timer
         brainTimer = BrainTimer("BrainTimer", self.client, self.node)

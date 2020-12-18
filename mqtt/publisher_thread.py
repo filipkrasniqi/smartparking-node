@@ -28,12 +28,13 @@ class MQTTPublisher(LogThread):
         # start timer persisting configuration
         if self.configTimer is None:
             self.configTimer = ConfigTimer("ConfigTimer", self.client, self.idNode)
-            self.configTimer.start()
 
     def on_configure(self, client, userdata, msg):
+        # then I parse the node and set it to ready
         self.node = jsonpickle.decode(msg.payload)
-        self.configTimer.setNode(self.node)
         self.node.setReady()
+        # same in the configTimer
+        self.configTimer.setNode(self.node)
 
     def __init__(self, name, node):
         LogThread.__init__(self, name)

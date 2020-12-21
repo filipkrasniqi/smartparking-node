@@ -13,7 +13,7 @@ To download and build this repository, you should simply clone the repo and run 
 We use [paho-mqtt](https://pypi.org/project/paho-mqtt/) to connect the MQTT client, jsonpickle to serialize Python objects.
 
 ## Protocol
-- **parking/node/config**: node communicates to brain the need of configuration. This is required as each node, when started, is not aware of its configuration. Thus it asks the park to which it refers and the slots that were assigned to him (see parking structure [here](https://github.com/filipkrasniqi/smartparking-brain/blob/master/README.md)). 
+- **parking/node/config**: node communicates to brain the need of configuration. This is required as each node, when started, is not aware of its configuration. Thus it asks the park to which it refers and the slots that were assigned to him (see parking structure [here](https://github.com/filipkrasniqi/smartparking-brain/blob/master/README.md#data-collection)). 
 - **parking/node/occupancy**: a configured node communicates to brain whether the slots it is controlling are occupied. The payload is an instance of the [OccupancyMessage](https://github.com/filipkrasniqi/smartparking-node/blob/29975f48ae64df07f46675502b201413a53f45e6/mqtt/messages/node.py#L10) class.
 - **parking/brain/config**: brain communicates to node its configuration.
 

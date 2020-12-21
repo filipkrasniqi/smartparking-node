@@ -1,4 +1,5 @@
 # Smart Parking: node
+## Brief summary of the architecture
 The smart parking architecture comprehends **nodes**, **effectors** and a **brain**. In addition to them, we have **devices**, that represent users. The **nodes** allow occupancy detection, whereas **effectors** are the components that provide feedback to the users. The **brain** is centralized and its main contribution is the activation of the effectors wrt the position of a device, and wrt the available parking slots.
 
 Currently, we don't have specifics on whether effectors and devices may be actually different, so please consider them as different entities that may relate to the same component (e.g.: smartphone).
